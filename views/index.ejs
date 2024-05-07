@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+<div class="container">
+  <div class="card-group">
+    <% students.forEach((student) => { %>
+      <div class="card">
+        <img src="<%= student.image %>" class="card-img-top" alt="Student Image">
+        <div class="card-body">
+          <h5 class="card-title"><%= student.nomComplet %></h5>
+          <p class="card-text"><%= student.description %></p>
+          <a href="/students/<%= student.id %>/edit" class="btn btn-primary">Edit</a>
+          <form action="/students/<%= student.id %>?_method=DELETE" method="POST" style="display: inline;">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+          <p class="card-text"><small class="text-muted">Last updated: <%= student.lastUpdated %></small></p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<% include partials/footer %>

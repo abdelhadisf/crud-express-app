@@ -1,0 +1,82 @@
+<% include partials/header %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Student Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        .ui.main.container.segment {
+            margin-top: 50px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .ui.huge.header {
+            margin-bottom: 20px;
+        }
+        .ui.form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .field {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 150px;
+        }
+        .ui.basic.button {
+            background-color: #6435c9;
+            color: #ffffff;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .ui.basic.button:hover {
+            background-color: #4b1fa2;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui main text container segment">
+        <div class="ui huge header"> New Student</div>
+        <form action="/students" method="POST" class="ui form">
+            <div class="field">
+                <label>Title:</label>
+                <input type="text" name="student[title]" placeholder="Title">
+            </div>
+            <div class="field">
+                <label>Image:</label>
+                <input type="text" name="student[image]" placeholder="Image URL">
+            </div>
+            <div class="field">
+                <label>Description:</label>
+                <textarea name="student[description]" placeholder="Description"></textarea>
+            </div>
+            <input type="submit" class="ui violet basic button" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
+<% include partials/footer %>

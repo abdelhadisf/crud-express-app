@@ -1,0 +1,36 @@
+<% include partials/header %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Student</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style>
+        /* Your existing styles */
+    </style>
+</head>
+<body>
+    <div class="ui main text container segment">
+        <div class="ui huge header"> Edit <%= student.nomComplet %></div>
+        <form action="/students/<%= student.id %>?_method=PUT" method="POST" class="ui form">
+            <input type="hidden" name="_method" value="PUT"> <!-- Add a hidden input to override method to PUT -->
+            <div class="field">
+                <label>Nom Complet:</label>
+                <input type="text" name="student[nomComplet]" placeholder="Nom Complet" value="<%= student.nomComplet %>">
+            </div>
+            <div class="field">
+                <label>Image:</label>
+                <input type="text" name="student[image]" placeholder="Image URL" value="<%= student.image %>">
+            </div>
+            <div class="field">
+                <label>Description:</label>
+                <textarea name="student[description]" placeholder="Description"><%= student.description %></textarea>
+            </div>
+            <input type="submit" class="ui violet basic button" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
+<% include partials/footer %>
